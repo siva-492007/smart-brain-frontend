@@ -54,7 +54,6 @@ class App extends Component {
   }
 
   calculateFaceLocation = (data) => {
-    console.log("data: ", data)
     const clarifaiFace = data.outputs[0].data.regions[0].region_info.bounding_box;
     const image = document.getElementById('inputimage');
     const width = Number(image.width);
@@ -76,7 +75,7 @@ class App extends Component {
   }
 
   onButtonSubmit = () => {
-    console.log("input : ", this.state.input)
+    this.setState({imageUrl: this.state.input})
       fetch(imageURl, {
         method: 'post',
         headers: {'Content-Type': 'application/json'},
